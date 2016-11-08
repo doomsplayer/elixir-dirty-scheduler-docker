@@ -17,6 +17,8 @@ WORKDIR /home/builder/erlang-nox
 
 COPY PKGBUILD .
 
-RUN makepkg -s --noconfirm && pacman -U erlang-nox-*-x86_64.pkg.tar.xz
+RUN makepkg -s --noconfirm && sudo pacman -U erlang-nox-*-x86_64.pkg.tar.xz --noconfirm
 
-RUN userdel -r builder
+RUN sudo userdel -r builder
+
+USER root
